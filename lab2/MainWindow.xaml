@@ -5,19 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid ShowGridLines="True">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="4*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Label Grid.Column="1">Label</Label>
-        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">TextBox</TextBox>
-        <Button Grid.Row="2" Grid.Column="1">Button</Button>
-    </Grid>
+    <StackPanel VerticalAlignment="Center">
+        <Label HorizontalAlignment="Center">Label</Label>
+        <TextBox Margin="40 0" Height="25">TextBox</TextBox>
+        <TextBox Margin="40 0" Height="25">TextBox</TextBox>
+        <TextBox Margin="40 0" Height="25">TextBox</TextBox>
+        <TextBox Margin="40 0" Height="25">TextBox</TextBox>
+        <Button Margin="200 100" Height="25">Button</Button>
+    </StackPanel>
 </Window>
