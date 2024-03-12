@@ -4,10 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="600">
-    <Canvas Background="Aqua">
-        <Label Canvas.Top="20" Canvas.Left="20">Label</Label>
-        <TextBox Canvas.Top="40" Canvas.Left="40">text</TextBox>
-        <Button Canvas.Top="60" Canvas.Left="60">button</Button>
-    </Canvas>
+        Title="TextEditor" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button>
+                <Image Source="Images/open.png" Width="100" ToolTip="Відкрити" />
+            </Button>
+            <Button>
+                <Image Source="Images/erase.png" Width="100" ToolTip="Стерти" />
+            </Button>
+            <Button>
+                <Image Source="Images/copy.png" Width="100" ToolTip="Копіювати" />
+            </Button>
+            <Button>
+                <Image Source="Images/paste.png" Width="100" ToolTip="Вставити" />
+            </Button>
+        </StackPanel>
+        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" />
+        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBox VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Margin="15" />
+            <DockPanel Grid.Row="1" Margin="15">
+                <Button DockPanel.Dock="Bottom" Width="40" Content="OK"/>
+            </DockPanel>
+        </Grid>
+    </Grid>
 </Window>

@@ -7,4 +7,18 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Images\copy.png" />
+      <None Remove="Images\erase.png" />
+      <None Remove="Images\open.png" />
+      <None Remove="Images\paste.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Images\copy.png" />
+      <Resource Include="Images\erase.png" />
+      <Resource Include="Images\open.png" />
+      <Resource Include="Images\paste.png" />
+    </ItemGroup>
+
 </Project>
