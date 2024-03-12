@@ -4,13 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel VerticalAlignment="Center">
-        <Label HorizontalAlignment="Center">Label</Label>
-        <TextBox Margin="40 0" Height="25">TextBox</TextBox>
-        <TextBox Margin="40 0" Height="25">TextBox</TextBox>
-        <TextBox Margin="40 0" Height="25">TextBox</TextBox>
-        <TextBox Margin="40 0" Height="25">TextBox</TextBox>
-        <Button Margin="200 100" Height="25">Button</Button>
-    </StackPanel>
+        Title="MainWindow" Height="300" Width="600">
+    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="80">
+        <Label>Label</Label>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <Label>Label</Label>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <Button Margin="150 20">Button</Button>
+    </WrapPanel>
 </Window>
