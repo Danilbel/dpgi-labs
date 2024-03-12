@@ -12,7 +12,7 @@
             <GradientStop Color="Blue" Offset="0.5"></GradientStop>
             <GradientStop Color="Yellow" Offset="0.8"></GradientStop>
         </LinearGradientBrush>
-        
+
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
@@ -28,16 +28,16 @@
         <Border BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"
                 Background="{StaticResource LinearPanelBrush}">
             <StackPanel Orientation="Horizontal">
-                <Button>
+                <Button Command="Open">
                     <Image Source="Images/open.png" Width="100" ToolTip="Відкрити" />
                 </Button>
-                <Button>
+                <Button Command="New">
                     <Image Source="Images/erase.png" Width="100" ToolTip="Стерти" />
                 </Button>
-                <Button>
+                <Button Command="Copy" CommandTarget="{Binding ElementName=InputTextBox}">
                     <Image Source="Images/copy.png" Width="100" ToolTip="Копіювати" />
                 </Button>
-                <Button>
+                <Button Command="Paste" CommandTarget="{Binding ElementName=InputTextBox}">
                     <Image Source="Images/paste.png" Width="100" ToolTip="Вставити" />
                 </Button>
             </StackPanel>
@@ -49,9 +49,14 @@
                     <RowDefinition />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <TextBox VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Margin="15" />
+                <TextBox Name="InputTextBox" VerticalScrollBarVisibility="Visible"
+                         TextWrapping="Wrap" Margin="15"
+                         FontSize="{Binding ElementName=FontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
                 <DockPanel Grid.Row="1" Margin="15">
-                    <Button DockPanel.Dock="Bottom" Width="40" Content="OK" Style="{x:Null}"/>
+                    <Label>Розмір шрифту:</Label>
+                    <Slider Name="FontSlider" Margin="4" MinWidth="100" Minimum="12" Maximum="100"></Slider>
+                    <Button DockPanel.Dock="Bottom" Width="40" Content="OK" Style="{x:Null}" ToolTip="Зберегти"
+                            Command="Save" />
                 </DockPanel>
             </Grid>
         </Border>
