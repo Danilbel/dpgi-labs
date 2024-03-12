@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="600">
-    <DockPanel LastChildFill="False">
-        <Label DockPanel.Dock="Top" HorizontalContentAlignment="Center">Label</Label>
-        <TextBox DockPanel.Dock="Left" Width="220">TextBox</TextBox>
-        <TextBox DockPanel.Dock="Right" Width="220">TextBox</TextBox>
-        <Button DockPanel.Dock="Bottom" Margin="10 40">Button</Button>
-    </DockPanel>
+    <Canvas Background="Aqua">
+        <Label Canvas.Top="20" Canvas.Left="20">Label</Label>
+        <TextBox Canvas.Top="40" Canvas.Left="40">text</TextBox>
+        <Button Canvas.Top="60" Canvas.Left="60">button</Button>
+    </Canvas>
 </Window>
