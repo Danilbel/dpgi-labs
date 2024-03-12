@@ -5,36 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="TextEditor" Height="450" Width="800">
+
+    <Window.Resources>
+        <LinearGradientBrush x:Key="LinearPanelBrush">
+            <GradientStop Color="Yellow" Offset="0"></GradientStop>
+            <GradientStop Color="Blue" Offset="0.5"></GradientStop>
+            <GradientStop Color="Yellow" Offset="0.8"></GradientStop>
+        </LinearGradientBrush>
+        
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderBrush" Value="White"></Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Button>
-                <Image Source="Images/open.png" Width="100" ToolTip="Відкрити" />
-            </Button>
-            <Button>
-                <Image Source="Images/erase.png" Width="100" ToolTip="Стерти" />
-            </Button>
-            <Button>
-                <Image Source="Images/copy.png" Width="100" ToolTip="Копіювати" />
-            </Button>
-            <Button>
-                <Image Source="Images/paste.png" Width="100" ToolTip="Вставити" />
-            </Button>
-        </StackPanel>
-        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" />
-        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" />
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <TextBox VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Margin="15" />
-            <DockPanel Grid.Row="1" Margin="15">
-                <Button DockPanel.Dock="Bottom" Width="40" Content="OK"/>
-            </DockPanel>
-        </Grid>
+        <Border BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"
+                Background="{StaticResource LinearPanelBrush}">
+            <StackPanel Orientation="Horizontal">
+                <Button>
+                    <Image Source="Images/open.png" Width="100" ToolTip="Відкрити" />
+                </Button>
+                <Button>
+                    <Image Source="Images/erase.png" Width="100" ToolTip="Стерти" />
+                </Button>
+                <Button>
+                    <Image Source="Images/copy.png" Width="100" ToolTip="Копіювати" />
+                </Button>
+                <Button>
+                    <Image Source="Images/paste.png" Width="100" ToolTip="Вставити" />
+                </Button>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"
+                Background="{StaticResource LinearPanelBrush}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBox VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Margin="15" />
+                <DockPanel Grid.Row="1" Margin="15">
+                    <Button DockPanel.Dock="Bottom" Width="40" Content="OK" Style="{x:Null}"/>
+                </DockPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
