@@ -1,0 +1,90 @@
+﻿<Window x:Class="lab3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab3"
+        mc:Ignorable="d"
+        Title="Caesar's cipher" MinWidth="630" Width="800" MinHeight="350" Height="450"
+        Background="{StaticResource BackgroundLinearGradientBrush}">
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+               Content="Caesar's cipher"
+               Style="{StaticResource HeaderLabel}" />
+
+        <StackPanel Grid.Row="1" Grid.Column="0"
+                    Style="{StaticResource RightButtonContainerStackPanel}">
+            <Button Name="OpenButton"
+                    Content="Open"
+                    Style="{StaticResource OpenClearButton}" />
+            <Button Name="ClearButton"
+                    Content="Clear"
+                    Style="{StaticResource OpenClearButton}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="3"
+                    Style="{StaticResource LeftButtonContainerStackPanel}">
+            <Button Name="SaveButton"
+                    Content="Save"
+                    Style="{StaticResource BaseButton}" />
+        </StackPanel>
+
+        <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                 Name="InputTextBox"
+                 Text="TextBox"
+                 Style="{StaticResource InputTextBox}" />
+
+        <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                 Name="OutputTextBox"
+                 Text="TextBox"
+                 Style="{StaticResource OutputTextBox}" />
+
+        <TextBlock Grid.Row="3" Grid.Column="0"
+                   Style="{StaticResource FontSizeTextBlock}">
+            <Run Text="Font size:" />
+            <Run Text="{Binding Value, ElementName=FontSizeSlider}" />
+        </TextBlock>
+
+        <DockPanel Grid.Row="4" Grid.Column="0">
+            <Label DockPanel.Dock="Left"
+                   Content="16"
+                   Style="{StaticResource TickSliderLabel}" />
+            <Label DockPanel.Dock="Right"
+                   Content="72"
+                   Style="{StaticResource TickSliderLabel}" />
+            <Slider Name="FontSizeSlider"
+                    Style="{StaticResource FontSizeSlider}" />
+        </DockPanel>
+
+        <DockPanel Grid.Row="3" Grid.RowSpan="2" Grid.Column="2">
+            <Label Content="Key:"
+                   Style="{StaticResource KeyLabel}" />
+            <TextBox Name="InputKeyTextBox"
+                     Text="12345"
+                     Style="{StaticResource KeyTextBox}" />
+        </DockPanel>
+
+        <WrapPanel Grid.Row="3" Grid.RowSpan="2" Grid.Column="3">
+            <Button Name="EncryptButton"
+                    Content="Encrypt"
+                    Style="{StaticResource CipherButton}" />
+            <Button Name="DecryptButton"
+                    Content="Decrypt"
+                    Style="{StaticResource CipherButton}" />
+        </WrapPanel>
+    </Grid>
+</Window>

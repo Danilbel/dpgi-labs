@@ -1,0 +1,196 @@
+﻿<Application x:Class="lab3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:lab3"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="BorderBrush" Color="#6f3a27" />
+
+        <SolidColorBrush x:Key="ButtonBrush" Color="#cf6d2f" />
+        <SolidColorBrush x:Key="FocusButtonBrush" Color="#eb7d36" />
+
+        <LinearGradientBrush x:Key="BackgroundLinearGradientBrush">
+            <GradientStop Color="#8b4519" Offset="0" />
+            <GradientStop Color="#ff7f50" Offset="0.6" />
+            <GradientStop Color="#8b4519" Offset="1" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="InputTextBoxLinearGradientBrush">
+            <GradientStop Color="#8b4519" Offset="0" />
+            <GradientStop Color="#ff7f50" Offset="0.8" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="OutputTextBoxLinearGradientBrush">
+            <GradientStop Color="#ff7f50" Offset="0.6" />
+            <GradientStop Color="#8b4519" Offset="1" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="KeyTextBoxLinearGradientBrush">
+            <GradientStop Color="#ff7f50" Offset="0.6" />
+            <GradientStop Color="#8b4519" Offset="1.4" />
+        </LinearGradientBrush>
+
+        <!-- Style Label -->
+
+        <Style x:Key="HeaderLabel"
+               TargetType="Label">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+        </Style>
+
+        <Style x:Key="KeyLabel"
+               TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+        <Style x:Key="TickSliderLabel"
+               TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <!-- Style TextBlock -->
+
+        <Style x:Key="FontSizeTextBlock"
+               TargetType="TextBlock">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+        <!-- Style Button -->
+
+        <Style x:Key="BaseButton"
+               TargetType="Button">
+            <Setter Property="Padding" Value="10, 3" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="{StaticResource ButtonBrush}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource FocusButtonBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="OpenClearButton"
+               TargetType="Button"
+               BasedOn="{StaticResource BaseButton}">
+            <Setter Property="Margin" Value="0, 0, 10, 0" />
+        </Style>
+
+        <Style x:Key="CipherButton"
+               TargetType="Button"
+               BasedOn="{StaticResource BaseButton}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="MinWidth" Value="120" />
+        </Style>
+
+        <!-- Style Slider -->
+
+        <Style x:Key="FontSizeSlider"
+               TargetType="Slider">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Minimum" Value="16" />
+            <Setter Property="Maximum" Value="72" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="IsSnapToTickEnabled" Value="True" />
+            <Setter Property="TickFrequency" Value="1" />
+        </Style>
+
+        <!-- Style TextBox -->
+
+        <Style x:Key="BaseTextBox"
+               TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="InputTextBox"
+               TargetType="TextBox"
+               BasedOn="{StaticResource BaseTextBox}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="AcceptsReturn" Value="True" />
+            <Setter Property="FontSize"
+                    Value="{Binding ElementName=FontSizeSlider,
+                                    Path=Value,
+                                    UpdateSourceTrigger=PropertyChanged}" />
+            <Setter Property="Background" Value="{StaticResource InputTextBoxLinearGradientBrush}" />
+        </Style>
+
+        <Style x:Key="OutputTextBox"
+               TargetType="TextBox"
+               BasedOn="{StaticResource InputTextBox}">
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Background" Value="{StaticResource OutputTextBoxLinearGradientBrush}" />
+        </Style>
+
+        <Style x:Key="KeyTextBox"
+               TargetType="TextBox"
+               BasedOn="{StaticResource BaseTextBox}">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Background" Value="{StaticResource KeyTextBoxLinearGradientBrush}" />
+        </Style>
+
+        <!-- Style StackPanel -->
+
+        <Style x:Key="RightButtonContainerStackPanel"
+               TargetType="StackPanel">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+
+        <Style x:Key="LeftButtonContainerStackPanel"
+               TargetType="StackPanel"
+               BasedOn="{StaticResource RightButtonContainerStackPanel}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+
+        <!-- Style DockPanel -->
+
+        <Style TargetType="DockPanel">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <!-- Style WrapPanel -->
+
+        <Style TargetType="WrapPanel">
+            <Setter Property="Margin" Value="10, 5" />
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+
+    </Application.Resources>
+</Application>
