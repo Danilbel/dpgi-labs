@@ -1,0 +1,83 @@
+﻿<Window x:Class="lab5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="WindowLoaded"
+        FontSize="16">
+    <Window.DataContext>
+        <local:PriceRange></local:PriceRange>
+    </Window.DataContext>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Products">
+                <DataGrid Name="ProductsDataGrid" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                        <DataGridTextColumn Header="Article" Binding="{Binding Article}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="UnitsOfMeasureId" Binding="{Binding UnitOfMeasureId}" />
+                        <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                        <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Units Of Measures">
+                <DataGrid Name="UnitsOfMeasuresDataGrid" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Joining tables">
+                <DataGrid Name="JoiningTablesDataGrid" />
+            </TabItem>
+            <TabItem Header="Find Product By Name">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 3">
+                        <Label Content="Product Name:" />
+                        <TextBox Name="ProductNameTextBox" Width="140" Height="25" Margin="3 0" />
+                        <Button Content="Find" Width="50" Height="25" Click="FindProductByNameButtonClick" />
+                    </StackPanel>
+                    <DataGrid Name="FindProductsByNameDataGrid" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Article" Binding="{Binding Article}" />
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="UnitsOfMeasureId" Binding="{Binding UnitOfMeasureId}" />
+                            <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Find Product By Price">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 3">
+                        <TextBlock Text="Min Price:" />
+                        <TextBox Name="MinPriceTextBox" Width="60" Height="25" Margin="3 0"
+                                 Text="{Binding MinPrice, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="Max Price:" />
+                        <TextBox Name="MaxPriceTextBox" Width="60" Height="25" Margin="3 0"
+                                 Text="{Binding MaxPrice, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                        <Button Content="Find" Width="50" Height="25" Click="FindProductByPriceButtonClick" />
+                    </StackPanel>
+                    <DataGrid Name="FindProductsByPriceDataGrid" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Article" Binding="{Binding Article}" />
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="UnitsOfMeasureId" Binding="{Binding UnitOfMeasureId}" />
+                            <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
