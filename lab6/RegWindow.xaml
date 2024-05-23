@@ -1,0 +1,59 @@
+<Window x:Class="lab6.RegWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="RegWindow" Height="350" Width="400"
+        FontSize="16">
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+               Content="Caesar's cipher"
+               Style="{StaticResource HeaderLabel}" />
+
+        <Label Grid.Row="1" Grid.Column="1"
+               Content="Username:"
+               VerticalAlignment="Center"
+               Margin="0 10 0 0" />
+
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                 Name="UsernameTextBox"
+                 VerticalAlignment="Center" />
+
+        <Label Grid.Row="3" Grid.Column="1"
+               Content="Password:"
+               VerticalAlignment="Center" />
+
+        <PasswordBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
+                     Name="PasswordBox"
+                     VerticalAlignment="Center" />
+
+        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
+                Content="Register"
+                Click="RegClick"
+                HorizontalAlignment="Center"
+                Margin="0 30 0 10"
+                Height="30" Width="90" />
+
+        <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
+               HorizontalAlignment="Center"
+               Content="Already have an account? Sign in!"
+               MouseDown="SignInClick" />
+    </Grid>
+</Window>
